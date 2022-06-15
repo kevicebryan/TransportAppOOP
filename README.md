@@ -5,7 +5,7 @@ transport logistic application, connect to MySQL database
 ### Datbase Name: logistic
 ##### run this for initalization
 ```
- create table transport (
+create table transport (
 	id int not null, 
 	type varchar(12) not null, 
 	status varchar(10) not null, #Available / Shipping / Maintenance  

@@ -10,6 +10,7 @@ create table transport (
 	type varchar(12) not null, 
 	status varchar(10) not null, #Available / Shipping / Maintenance  
 	primary key (id));
+
 create table transaction (
 	shipping_id int not null,
 	package_id varchar(10) not null,

@@ -11,13 +11,13 @@ create table transport (
 	status varchar(10) not null, #Available / Shipping / Maintenance  
 	primary key (id));
 create table transaction (
-     shipping_id int not null,
-     package_id varchar(10) not null,
-     transport_id int not null,
-     created_date date,
-     eta date,
-     arrival_date date,
-     primary key (shipping_id));
+	shipping_id int not null,
+	package_id varchar(10) not null,
+	transport_id int not null,
+	created_date date,
+	eta date,
+	arrival_date date,
+	primary key (shipping_id));
 	
 INSERT INTO `transport`(`id`, `type`, `status`) VALUES ('1','Road','Available');
 INSERT INTO `transport`(`id`, `type`, `status`) VALUES ('2','Sea','Available');

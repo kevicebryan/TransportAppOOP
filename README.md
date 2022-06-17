@@ -3,7 +3,7 @@ transport logistic application, connect to MySQL database
 
 
 ### Datbase Name: logistic
-##### run this for initalization
+##### run this MySQL for initalization
 ```
 create table transport (
 	id int not null, 

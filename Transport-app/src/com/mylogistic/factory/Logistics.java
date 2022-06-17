@@ -16,9 +16,9 @@ public abstract class Logistics {
 		if (getTransportAvailability()) {
 			// get the TransportID of the available Transport
 			int transportID = getTransportIDAvailable();
-			// TODO insert the transaction..
+			//  insert the transaction..
 			Transaction.insertTransactionDatabase(Integer.parseInt(p.getPackageID()), transportID);
-			// TODO update the transport object status to Shipping
+			//  update the transport object status to Shipping
 			toggleTransportStatus(transportID, false);
 			
 			

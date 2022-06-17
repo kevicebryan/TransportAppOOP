@@ -39,7 +39,7 @@ public class Program {
 		
 		// Restructure the code so that the program can handle several operations such as
 		// 1) create new shipping transaction V
-		// 2) completes a shipping transaction 		
+		// 2) completes a shipping transaction 	V
 		menu();
 		
 	}
@@ -72,10 +72,12 @@ public class Program {
 	}
 	
 	private static void createTrans() {
-		
+		// Input delivery Code of the package 
+		// Delivery Code here must be a number
 		System.out.print("Create new delivery package, insert the delivery code:");
 		Package deliveryPackage = new Package(in.next());
 		
+		// Input Shipping Option (Road / Sea)
 		String shippingOptions = getShippingOptions();
 		System.out.print("Choose shipping "+ shippingOptions +" : ");
 		
@@ -84,7 +86,7 @@ public class Program {
 			if (logisticOpr == null) {
 				throw new Exception("logistic option not supported yet.");
 			}
-			
+			// Plan Delivery --> Set Status to Shipping
 			logisticOpr.planDelivery(deliveryPackage);
 		} catch (Exception ex) {
 			System.out.println(ex.getMessage());
@@ -93,23 +95,22 @@ public class Program {
 	}
 	private static void completeTrans() {
 		
-//		System.out.println("Complete delivery, insert the devilery code:");
-//		Package deliveryPackage = new Package(in.next());
-		
 		try {
+			// Prompt List of Transactions (if arrival date EXIST, delivery completed!)
 			transactions = Transaction.viewTrans();
 			if( transactions.size() == 0) {
 				System.out.println("No Transactions Yet\n");
 				return;
 			}
-			
+			// Get the Transaction that want to be completed
 			Transaction trans = getTransaction();
 			
 			System.out.println("Transaction "+trans.getShippingID() + " has been completed");
+			// Change Status from Shipping to Available
 			Logistics.toggleTransportStatus(trans.getTransportID(), true);
 			System.out.println(trans.getShippingID());
+			// Set Arrival Date to Curr Date
 			Transaction.updateArrival(trans.getShippingID());
-			
 			
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -134,12 +135,6 @@ public class Program {
 			if(idx == transactions.get(i).getShippingID()) return transactions.get(i);
 		}
 		return null;
-	}
-
-	private static void viewTrans() {
-		System.out.println("Transaction List");
-		System.out.println("===============================");
-		
 	}
 
 }

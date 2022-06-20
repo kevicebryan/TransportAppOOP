@@ -1,7 +1,8 @@
 package com.mylogistic.transport;
 
 public interface Transport {
-	void deliver();
+	
+	void deliver(int id);
 
 	String toString(int transportID);
 }

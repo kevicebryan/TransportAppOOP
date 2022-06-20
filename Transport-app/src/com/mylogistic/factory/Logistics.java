@@ -24,7 +24,8 @@ public abstract class Logistics {
 			
 			Transport t = createTransport();
 			System.out.println("Plan Delivery "+ p +" via " + t.toString(transportID) + " Logistic.");
-			t.deliver();
+			t.deliver(transportID);
+			
 			
 		} else {
 			System.out.println("Sorry, we're currently unavailable to transport your package.");
